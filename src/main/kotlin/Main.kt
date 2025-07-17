@@ -7,24 +7,15 @@ fun main() {
     ): String {
 
 
-        val variant1 = "минуту"
-        val variant2 = "минуты"
-        val variant3 = "минут"
-        val variant4 = "час"
-        val variant5 = "часа"
-        val variant6 = "часов"
-
-
         val time = when {
-            (second / 60) % 10 == 1 && second < 60 * 60 -> variant1
-            (second / 60 % 10 == 2 || second / 60 % 10 == 3 || second / 60 % 10 == 4) && second < 60 * 60 -> variant2
-            (second / 60 % 10 == 5 || second / 60 % 10 == 6 || second / 60 % 10 == 7 || second / 60 % 10 == 8 || second / 60 % 10 == 9 || second == 3600) && second <= 60 * 60 -> variant3
-            (second / (60 * 60) % 10) == 1 -> variant4
-            ((second / (60 * 60) % 10) == 2) || ((second / (60 * 60) % 10) == 3) || ((second / (60 * 60) % 10) == 4) -> variant5
+            (second / 60) % 10 == 1 && second < 60 * 60 -> "минуту"
+            (second / 60 % 10 == 2 || second / 60 % 10 == 3 || second / 60 % 10 == 4) && second < 60 * 60 -> "минуты"
+            (second / 60 % 10 == 5 || second / 60 % 10 == 6 || second / 60 % 10 == 7 || second / 60 % 10 == 8 || second / 60 % 10 == 9 || second == 3600) && second <= 60 * 60 -> "минут"
+            (second / (60 * 60) % 10) == 1 -> "час"
+            ((second / (60 * 60) % 10) == 2) || ((second / (60 * 60) % 10) == 3) || ((second / (60 * 60) % 10) == 4) -> "часа"
 
-            else -> variant6
+            else -> "часов"
         }
-
 
 
         return when {
@@ -35,7 +26,6 @@ fun main() {
             second >= 2 * (24 * 60 * 60) && second <= 3 * (24 * 60 * 60) -> "был(а) позавчера"
             else -> "был(а) давно"
         }
-
 
     }
 
