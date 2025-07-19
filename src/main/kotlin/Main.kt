@@ -1,19 +1,19 @@
 package ru.netology
 
 fun main() {
-    val seconds = 64853
+    val seconds = 840
     fun agoToText (
         second: Int
     ): String {
 
-
         val time = when {
+            (second >= 39600 && second < 54000) -> "часов"
+            (second >= 600 && second < 1200)-> "минут"
             (second / 60) % 10 == 1 && second < 60 * 60 -> "минуту"
             (second / 60 % 10 == 2 || second / 60 % 10 == 3 || second / 60 % 10 == 4) && second < 60 * 60 -> "минуты"
-            (second / 60 % 10 == 5 || second / 60 % 10 == 6 || second / 60 % 10 == 7 || second / 60 % 10 == 8 || second / 60 % 10 == 9 || second == 3600) && second <= 60 * 60 -> "минут"
+            (second /60 %10 == 0 || second / 60 % 10 == 5 || second / 60 % 10 == 6 || second / 60 % 10 == 7 || second / 60 % 10 == 8 || second / 60 % 10 == 9) && second <= 60 * 60 -> "минут"
             (second / (60 * 60) % 10) == 1 -> "час"
             ((second / (60 * 60) % 10) == 2) || ((second / (60 * 60) % 10) == 3) || ((second / (60 * 60) % 10) == 4) -> "часа"
-
             else -> "часов"
         }
 
